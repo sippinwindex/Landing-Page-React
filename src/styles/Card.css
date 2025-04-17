@@ -1,0 +1,214 @@
+/* Styles for Card.jsx Component */
+
+/* Card styles using variables */
+.neumorphic-card {
+    /* ... width, height, layout ... */
+    background: var(--card-bg);
+    box-shadow: 15px 15px 30px var(--card-shadow-dark),
+               -15px -15px 30px var(--card-shadow-light);
+    /* ... other styles ... */
+  }
+  .neumorphic-card:hover {
+     box-shadow: 18px 18px 35px color-mix(in srgb, var(--card-shadow-dark) 90%, black), /* Example color mix */
+                -18px -18px 35px color-mix(in srgb, var(--card-shadow-light) 90%, white); /* Example color mix */
+     /* ... other styles ... */
+  }
+  .neumorphic-card.card-zoomed {
+    box-shadow: 20px 20px 40px color-mix(in srgb, var(--card-shadow-dark) 85%, black),
+               -20px -20px 40px color-mix(in srgb, var(--card-shadow-light) 85%, white);
+     /* ... other styles ... */
+  }
+  
+  
+  .card-content-area {
+    color: var(--card-text);
+    background: var(--card-bg); /* Ensure matching background */
+    /* ... other styles ... */
+  }
+  .card-title {
+    color: var(--card-title);
+     /* ... other styles ... */
+  }
+  .description-card {
+    background: var(--card-description-bg);
+    box-shadow: inset 2px 2px 4px var(--card-description-shadow-dark),
+                inset -2px -2px 4px var(--card-description-shadow-light);
+    color: var(--card-description-text);
+    /* ... other styles ... */
+  }
+  .cart-button {
+    /* ... layout ... */
+    background: var(--card-button-bg);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 10px;
+    border: 1px solid var(--card-button-border);
+    box-shadow: 0 4px 20px var(--card-button-shadow);
+    color: var(--card-button-text);
+     /* ... other styles ... */
+  }
+  .cart-button:hover {
+    background: var(--card-button-bg-hover);
+    border-color: var(--card-button-border-hover);
+    box-shadow: 0 6px 25px var(--card-button-shadow-hover);
+    color: var(--card-button-text-hover);
+    /* ... other styles ... */
+  }
+
+  
+
+/* --- Neumorphic Card Style --- */
+.neumorphic-card {
+    width: 190px;
+    min-height: 254px;
+    height: auto;
+    border-radius: 30px; /* Reverted to full radius for simplicity */
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+    padding: 0;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Keep this */
+    cursor: pointer;
+    position: relative; /* Needed for z-index */
+    /* Add transition for transform and box-shadow */
+    transition: transform 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
+    /* Default state (no zoom) */
+    transform: scale(1);
+    z-index: 1; /* Default z-index */
+  }
+  
+  /* --- Hover Effect --- */
+  .neumorphic-card:hover {
+    /* Don't increase z-index on hover unless needed, focus on click */
+    transform: scale(1.05); /* Zoom slightly on hover */
+    box-shadow: 18px 18px 35px #b4b4b4,
+               -18px -18px 35px #ffffff;
+  }
+  
+  /* --- Clicked/Zoomed State --- */
+  .neumorphic-card.card-zoomed {
+    transform: scale(1.07); /* Zoom slightly more when clicked */
+    box-shadow: 20px 20px 40px #b0b0b0, /* Even stronger shadow */
+               -20px -20px 40px #ffffff;
+    z-index: 10; /* Bring clicked card to the front */
+  }
+  
+  
+  /* Image Styling */
+  .card-img-top-fill {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    /* No radius needed if parent clips with overflow: hidden */
+  }
+  
+  /* Content Area Styling */
+  .card-content-area {
+    padding: 15px 15px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    color: #444;
+    background: #e0e0e0;
+    /* No explicit radius needed if parent clips */
+  }
+  
+  /* --- Description Card Styling --- */
+  /* Ensure description is readable on the zoomed card */
+  .description-card {
+    background: #d5d5d5;
+    margin: 0px 10px 10px 10px;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 4px #bcbcbc,
+                inset -2px -2px 4px #eeeeee;
+    animation: fadeInDesc 0.4s ease-out;
+    font-size: 0.8rem;
+    color: #333;
+    line-height: 1.4;
+    text-align: center;
+    position: relative; /* Ensure it stays above shadows if needed */
+    z-index: 1; /* Keep it above the content area background */
+  }
+  
+  @keyframes fadeInDesc {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+/* --- Glassmorphism Cart Button Styling --- */
+.cart-button {
+    /* Basic Reset & Setup */
+    border: none;
+    cursor: pointer;
+    position: relative; /* Needed for z-index */
+    overflow: hidden;   /* Needed for consistent backdrop-filter */
+    padding: 0;         /* Remove default padding */
+  
+    /* Dimensions & Layout */
+    width: 150px;
+    height: 38px;
+    align-self: center; /* Keep centered */
+    margin-top: auto;   /* Push down */
+    margin-bottom: 5px;
+    z-index: 5;         /* Keep above other elements */
+  
+    /* --- Glassmorphism Properties --- */
+    background: rgba(255, 255, 255, 0.1); /* Very subtle white background */
+    backdrop-filter: blur(6px);          /* The core blur effect */
+    -webkit-backdrop-filter: blur(6px);  /* Safari support */
+    border-radius: 10px;                 /* Maintain rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Faint border for definition */
+  
+    /* --- Soft Shadow --- */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft, diffused shadow */
+  
+    /* --- Text Color (Ensure Contrast) --- */
+    color: #282828; /* Darker text color for readability on light glass */
+  
+    /* --- Transitions --- */
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease-out, color 0.3s ease;
+  }
+  
+  .cart-button:hover {
+    background: rgba(255, 255, 255, 0.18); /* Slightly more opaque */
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 25px rgba(90, 11, 247, 0.289); /* Slightly larger shadow */
+    color: #111; /* Darker text on hover */
+    transform: scale(1.03); /* Keep the hover pop */
+  }
+  
+  .cart-button:active {
+    background: rgba(65, 230, 79, 0.363); /* Less opaque on press */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06); /* Pull shadow in */
+    transform: scale(0.98); /* Keep the active press effect */
+    color: #000;
+  }
+  
+  /* --- Button Text Styling (No Changes Needed Usually) --- */
+  .cart-button .button-text {
+    position: relative; /* Ensures text is conceptually 'on top' */
+    z-index: 2;        /* Stack above background/filter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif; /* Keep your font */
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    color: inherit; /* Inherit color from .cart-button */
+  }  

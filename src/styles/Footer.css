@@ -1,0 +1,37 @@
+/* Styles for Footer.jsx Component */
+
+.footer-styling {
+    /* --- Background & Glassmorphism (like Navbar) --- */
+    background-color: rgba(34, 34, 34, 0.85); /* Dark grey semi-transparent */
+    backdrop-filter: blur(8px);             /* Slightly less blur than navbar? Optional */
+    -webkit-backdrop-filter: blur(8px);     /* Safari support */
+  
+    /* --- Subtle Texture Option (Example: noise) --- */
+    /* Uncomment and adjust if you want a texture overlay */
+    /* background-image: linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02)),
+                     linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02));
+    background-size: 3px 3px; */ /* Adjust pattern size */
+  
+    /* --- Text & Font --- */
+    color: rgba(255, 255, 255, 0.8); /* Muted white text */
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+    font-size: 0.9rem;                /* Slightly smaller than body text maybe */
+    font-weight: 300;                 /* Lighter weight */
+  
+    /* --- Border & Shadow (like Navbar, but on top) --- */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);   /* Subtle shadow above the footer */
+  
+    /* --- Padding --- */
+    /* py-3 class from Bootstrap already adds vertical padding */
+    /* Add horizontal padding if needed (usually handled by .container) */
+  
+    /* Position relative might be needed if absolute positioning is used inside */
+    position: relative;
+    z-index: 5; /* Ensure it's reasonably high if navbar is sticky */
+  }
+  
+  /* Optional: More specific styling for the text itself */
+  .footer-text {
+    letter-spacing: 0.5px; /* Subtle letter spacing */
+  }

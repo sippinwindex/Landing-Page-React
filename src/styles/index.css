@@ -1,11 +1,290 @@
-/* 
+/* Import the Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+/* Apply base font to body or html for broader consistency */
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Optional: Add a subtle background if needed */
+  /* background-color: #f8f9fa;  */
+}
 
-*/
+
+* src/styles/index.css */
+
+/* --- Light Mode Variables (Default) --- */
+:root {
+  --body-bg: #f8f9fa;            /* Light grey background */
+  --text-color: #212529;         /* Standard dark text */
+  --text-muted: #6c757d;        /* Muted text */
+  --heading-color: #1a1a1a;      /* Darker headings */
+  --link-color: #0d6efd;         /* Default Bootstrap blue */
+  --link-hover-color: #0a58ca;
+
+  /* Navbar/Footer */
+  --navbar-footer-bg: rgba(248, 249, 250, 0.8); /* Light background with blur */
+  --navbar-footer-blur: 8px;
+  --navbar-footer-border: rgba(0, 0, 0, 0.1);
+  --navbar-footer-shadow: rgba(0, 0, 0, 0.1);
+  --navbar-footer-text: var(--text-color);
+  --navbar-footer-text-muted: rgba(0, 0, 0, 0.7); /* Darker white for contrast */
+  --navbar-footer-brand-color: var(--heading-color);
+  --navbar-link-hover-glow: rgba(0, 0, 0, 0.1); /* Subtle glow for light mode */
+  --navbar-toggler-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.6)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+  /* Hero */
+  --hero-bg-overlay: rgba(0, 0, 0, 0.2); /* Light mode overlay */
+  --hero-text: #ffffff;                 /* Keep hero text white usually */
+  --gradient-start: #ff8a00;
+  --gradient-end: #e52e71;
+
+  /* Card */
+  --card-bg: #e0e0e0;
+  --card-shadow-dark: #bebebe;
+  --card-shadow-light: #ffffff;
+  --card-text: #444;
+  --card-title: #222;
+  --card-description-bg: #d5d5d5;
+  --card-description-shadow-dark: #bcbcbc;
+  --card-description-shadow-light: #eeeeee;
+  --card-description-text: #333;
+
+  /* Card Button (Glassmorphism Light) */
+  --card-button-bg: rgba(255, 255, 255, 0.1);
+  --card-button-border: rgba(255, 255, 255, 0.18);
+  --card-button-shadow: rgba(0, 0, 0, 0.08);
+  --card-button-text: #282828;
+  --card-button-bg-hover: rgba(255, 255, 255, 0.18);
+  --card-button-border-hover: rgba(255, 255, 255, 0.25);
+  --card-button-shadow-hover: rgba(0, 0, 0, 0.12);
+  --card-button-text-hover: #111;
+
+}
+
+/* --- Dark Mode Variable Overrides --- */
+[data-bs-theme="dark"] {
+  --body-bg: #121212;             /* Very dark background */
+  --text-color: #e0e0e0;          /* Light text */
+  --text-muted: #a0a0a0;         /* Muted light text */
+  --heading-color: #f5f5f5;       /* Brighter headings */
+  --link-color: #6ea8fe;          /* Lighter blue link */
+  --link-hover-color: #9ec5fe;
+
+  /* Navbar/Footer */
+  --navbar-footer-bg: rgba(33, 37, 41, 0.85); /* Bootstrap dark bg, with blur */
+  --navbar-footer-blur: 10px;
+  --navbar-footer-border: rgba(255, 255, 255, 0.1);
+  --navbar-footer-shadow: rgba(0, 0, 0, 0.3); /* Darker shadow */
+  --navbar-footer-text: var(--text-color);
+  --navbar-footer-text-muted: rgba(255, 255, 255, 0.8);
+  --navbar-footer-brand-color: var(--heading-color);
+  --navbar-link-hover-glow: rgba(255, 255, 255, 0.5); /* White glow */
+  --navbar-toggler-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* White icon */
+
+  /* Hero */
+  --hero-bg-overlay: rgba(0, 0, 0, 0.5); /* Darker overlay for dark mode */
+  --hero-text: #ffffff;                 /* Still usually white */
+  --gradient-start: #ffab4d; /* Maybe slightly brighter */
+  --gradient-end: #ff6ea8;
+
+  /* Card */
+  --card-bg: #2a2a2a; /* Dark card background */
+  /* Dark Neumorphism Shadows */
+  --card-shadow-dark: #1f1f1f; /* Darker concave */
+  --card-shadow-light: #353535; /* Lighter convex */
+  --card-text: #c0c0c0; /* Lighter grey */
+  --card-title: #e0e0e0; /* Lighter title */
+  --card-description-bg: #333333;
+  --card-description-shadow-dark: #282828;
+  --card-description-shadow-light: #3e3e3e;
+  --card-description-text: #c0c0c0;
+
+  /* Card Button (Glassmorphism Dark) */
+  --card-button-bg: rgba(40, 40, 40, 0.2); /* Darker glass base */
+  --card-button-border: rgba(255, 255, 255, 0.1); /* Faint light border */
+  --card-button-shadow: rgba(0, 0, 0, 0.2); /* Standard shadow for dark */
+  --card-button-text: #d0d0d0; /* Light text */
+  --card-button-bg-hover: rgba(50, 50, 50, 0.3);
+  --card-button-border-hover: rgba(255, 255, 255, 0.15);
+  --card-button-shadow-hover: rgba(0, 0, 0, 0.25);
+  --card-button-text-hover: #f5f5f5;
+}
+
+/* --- Navbar Styling (Updated) --- */
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--navbar-footer-bg) !important; /* Use variable */
+  backdrop-filter: blur(var(--navbar-footer-blur));
+  -webkit-backdrop-filter: blur(var(--navbar-footer-blur));
+  box-shadow: 0 4px 15px var(--navbar-footer-shadow);
+  border-bottom: 1px solid var(--navbar-footer-border);
+}
+
+.navbar-brand {
+  color: var(--navbar-footer-brand-color) !important; /* Use variable */
+  font-weight: 600;
+  /* ... other styles ... */
+}
+
+.navbar .nav-link {
+  color: var(--navbar-footer-text-muted) !important; /* Use variable */
+  /* ... other styles ... */
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--navbar-footer-text) !important; /* Use variable */
+  text-shadow: 0 0 8px var(--navbar-link-hover-glow);
+}
+
+.navbar .nav-link::after {
+  /* ... */
+  background-color: var(--navbar-footer-text); /* Use variable */
+  /* ... */
+}
+
+.navbar-toggler-icon {
+   background-image: var(--navbar-toggler-icon) !important; /* Use variable */
+}
+
+/* Collapsed menu (Dark mode background is handled by the variable override) */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--navbar-footer-bg); /* Use variable */
+    backdrop-filter: blur(var(--navbar-footer-blur));
+    -webkit-backdrop-filter: blur(var(--navbar-footer-blur));
+    /* ... other styles ... */
+    border: 1px solid var(--navbar-footer-border);
+  }
+}
+
+
+
+/* Apply base body styles */
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Apply base link color */
+a {
+  color: var(--link-color);
+}
+a:hover {
+  color: var(--link-hover-color);
+}
+
+
+/* --- Navbar Styling --- */
+.navbar {
+  font-family: 'Poppins', sans-serif; /* Ensure font is applied */
+  padding: 0.8rem 1.5rem; /* Adjust padding as needed */
+  background-color: rgba(34, 34, 34, 0.85) !important; /* Dark grey semi-transparent */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Style the Brand */
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600; /* Slightly bolder */
+  font-size: 1.4rem; /* Larger brand text */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+    color: #e0e0e0 !important; /* Slightly lighter on hover */
+}
+
+/* Style Nav Links */
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important; /* Slightly muted white */
+  margin: 0 0.75rem; /* Spacing between links */
+  padding: 0.5rem 0; /* Vertical padding */
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover and Active/Focus States for Nav Links */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active { /* Style for active link using NavLink */
+  color: #ffffff !important; /* Brighter white on hover/active */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Subtle glow effect */
+}
+
+/* Underline effect for Hover/Active */
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px; /* Position the underline below the text */
+  left: 0;
+  background-color: #ffffff; /* White underline */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus::after,
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Hamburger Icon Styling */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3) !important; /* Lighter border */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important; /* Whiteish hamburger lines */
+}
+
+/* Collapsed Menu Styling (Mobile) */
+@media (max-width: 991.98px) { /* Target Bootstrap's LG breakpoint */
+  .navbar-collapse {
+    /* Use the same background/blur or a slightly more opaque one */
+    background-color: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+    margin-top: 0.5rem;
+    border-radius: 0.375rem; /* Standard Bootstrap border radius */
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar .nav-link {
+    margin: 0.5rem 0; /* Adjust spacing for vertical layout */
+    text-align: center; /* Center links in collapsed menu */
+  }
+
+   .navbar .nav-link::after {
+      bottom: 0px; /* Adjust underline position for mobile */
+   }
+}
+
+/* Optional: Styling for main content area to prevent overlap */
+.main-content {
+  padding-top: 80px; /* Adjust based on your final navbar height */
+}
+
+/* Optional: Ensure footer doesn't overlap content */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.flex-grow-1 {
+  flex: 1;
+}
