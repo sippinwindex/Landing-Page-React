@@ -2,6 +2,6 @@ Try the Landing page live!
 
 
 ```
-$ Link: 
+[$ Link: ](https://landing-page-react-two-puce.vercel.app/)
 
 ```
