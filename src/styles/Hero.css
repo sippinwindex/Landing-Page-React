@@ -5,28 +5,19 @@
 /* --- Hero Section Styling --- */
 .hero-section {
     /* --- Background Image --- */
-    /* Replace with your desired image URL */
-    /* Option 1: Image from web */
      background-image: url('https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'); /* Example abstract gradient */
     /* Option 2: Local image (place in public folder or handle with Vite) */
-    /* background-image: url('/images/your-hero-image.jpg'); */
   
     background-size: cover;         /* Cover the entire area */
-    background-position: center;    /* Center the image */
-    background-attachment: fixed;   /* Optional: Parallax effect */
-    min-height: 60vh;              /* Start with viewport height (adjust as needed) */
-    padding: 6rem 0;               /* Generous vertical padding */
-    position: relative;             /* Needed for potential overlays */
-    overflow: hidden;               /* Prevent content bleed */
+    background-position: center;    
+    background-attachment: fixed;   
+    min-height: 60vh;              
+    padding: 6rem 0;              
+    position: relative;             
+    overflow: hidden;               
   }
   
-  /* --- Glassmorphism Effect Container (Applied indirectly via structure) --- */
-  /* We apply glassmorphism subtly via the background of the content area if needed,
-     or rely on the navbar's glassmorphism and a potential semi-transparent overlay
-     on the hero background itself */
   
-  /* Optional: Add a subtle overlay BETWEEN the background image and content
-     if the image makes text hard to read */
   .hero-section::before {
     content: '';
     position: absolute;
@@ -34,8 +25,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); /* Dark semi-transparent overlay */
-    /* backdrop-filter: blur(2px); */ /* You can add blur here too */
+    background-color: rgba(0, 0, 0, 0.3); /*
+    /* backdrop-filter: blur(2px); *
     z-index: 1; /* Sit behind the content */
   }
   
@@ -50,8 +41,8 @@
   .animated-gradient-text {
     background-image: linear-gradient(
       90deg,
-      #88e86e, /* Start color */
-      #70e9cd, /* Middle color */
+      #88e86e, /* 
+      #70e9cd, /*
       #ece449  /* End color (same as start for smooth loop) */
     );
     background-size: 200% auto; /* Size gradient larger than element */
@@ -73,7 +64,6 @@
     font-weight: 300; /* Lighter font weight (ensure Poppins 300 is loaded) */
     color: rgba(255, 255, 255, 0.9); /* Slightly softer white */
     max-width: 600px; /* Limit width for readability on large screens */
-     /* Center text on small screens, but align left on large (handled by Bootstrap classes) */
     margin-left: auto;  /* Center block on small screens when text-center */
     margin-right: auto; /* Center block on small screens when text-center */
   }
@@ -87,7 +77,7 @@
   }
   
   
-  /* --- !!! PASTE YOUR PROVIDED BUTTON CSS HERE !!! --- */
+
   /* Make sure ALL the .button CSS you provided is included below */
   .button {
     --black-700: hsla(0 0% 12% / 1);
